@@ -1,0 +1,235 @@
+@import './variables.scss';
+
+/* padding & margin begin */
+
+.mr-03 {
+  margin-right: 0.3rem;
+}
+
+.mr-05 {
+  margin-right: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.mb-025 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-05 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.pb-2 {
+  padding-bottom: 2rem;
+}
+
+.pt-1 {
+  padding-top: 1rem;
+}
+
+.pt-2 {
+  padding-top: 2rem;
+}
+
+
+/* padding & margin end */
+
+
+/* text & title begin*/
+
+.text {
+  display: block;
+  &_smallest {
+    font-size: 1.25rem;
+  }
+  &_smaller {
+    font-size: 1.5rem
+  }
+  &_small {
+    font-size: 1.75rem;
+  }
+  &_big {
+    font-size: 2.0rem;
+  }
+  &_bigger {
+    font-size: 2.25rem;
+  }
+  &_biggest {
+    font-size: 2.5rem;
+  }
+  &_black {
+    color: black;
+  }
+  &_white {
+    color: white;
+  }
+  &_black {
+    color: black;
+  }
+  &_primary {
+    color: $color-primary;
+  }
+  &_secondary {
+    color: $color-secondary;
+  }
+  &_secondary-dark {
+    color: $color-secondary-dark;
+  }
+  &_dark {
+    color: $color-dark;
+    &-hover {
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  &_bold {
+    font-weight: 600;
+  }
+  &_uppercase {
+    text-transform: uppercase;
+  }
+}
+
+
+/* text & title end*/
+
+
+/* icons & pictures begin*/
+
+.logo {
+  width: 120px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  &_circle {
+    border-radius: 50%;
+  }
+}
+
+
+/* icons & pictures begin*/
+
+
+/* buttons begin*/
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  transition: 0.5s;
+  cursor: pointer;
+  &_primary {
+    background: $color-primary;
+    color: white;
+    &:hover {
+      background: $color-primary-dark;
+    }
+  }
+  &_secondary {
+    background: white;
+    outline: 1px solid $color-secondary-light;
+    &:hover {
+      background: $color-light;
+    }
+  }
+  &_success {
+    background: $color-success;
+    color: white;
+    &:hover {
+      background: $color-success-dark;
+    }
+  }
+  &_circle {
+    padding: 1rem;
+    border-radius: 50%;
+  }
+  &:disabled {
+    background: $color-secondary-light;
+    cursor: not-allowed;
+  }
+}
+
+
+/* buttons end*/
+
+
+/* different properties */
+
+body {
+  background: white
+}
+
+.wrapper {
+  &_light {
+    background: $color-light;
+  }
+  &_primary {
+    background: $color-primary;
+  }
+}
+
+.inner {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 0.75rem
+}
+
+.row {
+  display: flex;
+}
+
+.red {
+  background: red;
+}
+
+.active {
+  border-bottom: 2px solid $color-primary;
+}
+
+.primary {
+  color: $color-primary;
+}
+
+
+/* different properties */
