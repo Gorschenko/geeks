@@ -1,4 +1,15 @@
 @import './variables.scss';
+@mixin row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin container {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: $shadow-secondary-light;
+}
+
 
 /* padding & margin begin */
 
@@ -120,6 +131,9 @@
   &_uppercase {
     text-transform: uppercase;
   }
+  &_hidden {
+    overflow: hidden;
+  }
 }
 
 
@@ -150,9 +164,7 @@
 /* buttons begin*/
 
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   font-weight: 600;
@@ -233,3 +245,10 @@ body {
 
 
 /* different properties */
+
+// vue-animation
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}

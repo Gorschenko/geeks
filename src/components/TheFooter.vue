@@ -1,5 +1,5 @@
 <template>
-<footer class="footer">
+<footer class="footer mt-2">
   <span class="footer__text">© {{date}} Geeks. All rights reserved.</span>
   <Navigation :type="'footer'"/>
 </footer>

@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-
+import axios from 'axios'
 export const store = createStore({
   state() {
     return {
@@ -88,32 +88,45 @@ export const store = createStore({
         { female: 'Holland', name: 'Charlie', position: 'Designer' },
         { female: 'Butler', name: 'James', position: 'Manager' },
       ],
-      articles: [{
-          category: 'Courses',
-          title: 'How to become modern Stack Developer in 2022',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cupiditate! Nihil laboriosam voluptatem officiis deserunt.'
-        },
-        {
-          category: 'Courses',
-          title: 'How to become modern Stack Developer in 2022',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cupiditate! Nihil laboriosam voluptatem officiis deserunt.'
-        },
-        {
-          category: 'Courses',
-          title: 'How to become modern Stack Developer in 2022',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cupiditate! Nihil laboriosam voluptatem officiis deserunt.'
-        },
-        {
-          category: 'Courses',
-          title: 'How to become modern Stack Developer in 2022',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, cupiditate! Nihil laboriosam voluptatem officiis deserunt.'
-        }
-      ]
+      articles: []
     }
   },
   mutations: {
-    addArticle(state, payload) {
-      state.articles.push(payload)
+    addArticle(state, article) {
+      state.articles.push(article)
+    },
+    loadArticles(state, articles) {
+      state.articles = articles
+      console.log(state.articles)
+    },
+    removeArticle(state, id) {
+      state.articles = state.articles.filter(a => a.id !== id)
+    }
+  },
+  actions: {
+    async addArticle({ commit }, article) {
+      try {
+        const { data } = await axios.post('https://gorschenko-geeks-default-rtdb.europe-west1.firebasedatabase.app/articles.json', article)
+        commit('addArticle', {...article, id: data.name })
+      } catch (e) {}
+    },
+    async loadArticles({ commit }) {
+      try {
+        const { data } = await axios.get('https://gorschenko-geeks-default-rtdb.europe-west1.firebasedatabase.app/articles.json')
+        const response = Object.keys(data).map(key => {
+          return {
+            id: key,
+            ...data[key]
+          }
+        })
+        commit('loadArticles', response)
+      } catch (e) {}
+    },
+    async removeArticle({ commit }, id) {
+      try {
+        await axios.delete(`https://gorschenko-geeks-default-rtdb.europe-west1.firebasedatabase.app/articles/${id}.json`)
+        commit('removeArticle', id)
+      } catch (e) {}
     }
   },
   getters: {
