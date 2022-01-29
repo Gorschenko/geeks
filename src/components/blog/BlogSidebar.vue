@@ -1,15 +1,19 @@
 <template>
 <aside class="aside">
   <button
-    class="button button_success"
+    class="button button_success mb-1"
     @click="$emit('add-article')"
-  >Добавить запись</button>
+  >Добавить статью</button>
+    <button
+    class="button button_success"
+    @click="$emit('load-articles')"
+  >Загрузить список</button>
 </aside>
 </template>
 
 <script>
 export default {
-  emits: ['add-article']
+  emits: ['add-article', 'load-articles']
 }
 </script>
 

@@ -4,14 +4,19 @@
   <h1 class="text_smallest text_dark mb-1 card__category-title">{{ article.title }}</h1>
   <p class="text text_secondary card__category-content mb-1">{{ article.content }}</p>
   <router-link
-    class="card__category-link"
+    class="card__category-link mb-1"
     to="/home"
   >Подробнее</router-link>
+  <button
+    class="button button_secondary"
+    @click="$emit('remove-article', article.id)"
+  >Удалить запись</button>
 </article>
 </template>
 
 <script>
 export default {
+  emits: ['remove-article'],
   props: ['article']
 }
 </script>
@@ -31,7 +36,7 @@ export default {
       height: 40px;
     }
     &-link {
-      height: 20px;
+      display: inline-block;
       padding: 10px;
       border: $border-secondary-light;
       color: $color-secondary;
