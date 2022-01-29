@@ -2,17 +2,17 @@
 <section class="courses">
   <div class="wrapper_primary">
     <div class="inner">
-      <TitleBox class="courses__title-box"/>
+      <CoursesTitleBox class="courses__title-box"/>
     </div>
   </div>
   <div class="inner">
-    <Sorting class="courses__sorting" v-model="view"/>
+    <CoursesSorting class="courses__sorting" v-model="view"/>
     <div class="row">
-      <Filter class="courses__filter" @filter-courses="filter"/>
+      <CoursesFilter class="courses__filter" @filter-courses="filter"/>
       <section class="courses__cards">
         <ul class="courses__cards-list">
           <li class="courses__cards-list-item" v-for="course in courses">
-            <Card :course="course" :key="course"/>
+            <CoursesCard :course="course" :key="course"/>
           </li>
         </ul>
       </section>
@@ -25,16 +25,16 @@
 </template>
 
 <script>
-import TitleBox from '../components/courses/TitleBox'
-import Sorting from '../components/courses/Sorting'
-import Filter from '../components/courses/Filter'
-import Card from '../components/courses/Card'
+import CoursesTitleBox from '../components/courses/CoursesTitleBox'
+import CoursesSorting from '../components/courses/CoursesSorting'
+import CoursesFilter from '../components/courses/CoursesFilter'
+import CoursesCard from '../components/courses/CoursesCard'
 
 import { useStore } from 'vuex'
 import { ref, computed } from 'vue'
 
 export default {
-components: { TitleBox, Sorting, Filter, Card },
+components: { CoursesTitleBox, CoursesSorting, CoursesFilter, CoursesCard },
 
 setup() {
   const store = useStore()

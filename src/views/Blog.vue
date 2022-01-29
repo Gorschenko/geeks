@@ -15,17 +15,17 @@
       </section> -->
         <transition-group name="blog" class="blog__content-list" tag="ul">
           <li class="blog__content-list-item blog-item" v-for="article in articles" :key="article">
-            <Article :article="article"/>
+            <BlogArticle :article="article"/>
           </li>
         </transition-group>
       </section>
-      <Sidebar
+      <BlogSidebar
         class="blog__sidebar"
         @add-article="toggleModal"
       />
     </div>
   </div>
-  <AppModal
+  <BlogModal
     v-if="modal"
     @close-modal="toggleModal"
     @add-article="addArticle"
@@ -35,9 +35,9 @@
 
 <script>
 import Description from '../components/parts/Description'
-import Article from '../components/blog/Article'
-import Sidebar from '../components/blog/Sidebar'
-import AppModal from '../AppModal'
+import BlogArticle from '../components/blog/BlogArticle'
+import BlogSidebar from '../components/blog/BlogSidebar'
+import BlogModal from '../components/blog/BlogModal'
 import {useStore} from 'vuex'
 import {ref} from 'vue'
 
@@ -65,7 +65,7 @@ export default {
       modal, toggleModal, addArticle
     }
   },
-  components: { Description, Article, Sidebar, AppModal}
+  components: { Description, BlogArticle, BlogSidebar, BlogModal}
 }
 </script>
 

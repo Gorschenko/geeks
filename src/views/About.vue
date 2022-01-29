@@ -1,13 +1,13 @@
 <template>
 <section class="about mt-2 mb-3">
   <div class="inner">
-    <Information class="mb-3"/>
-    <Slider class="mb-3"/>
-    <Statistics class="mb-3"/>
+    <AboutInformation class="mb-3"/>
+    <AboutSlider class="mb-3"/>
+    <AboutStatistics class="mb-3"/>
   </div>
   <div class="wrapper_light pb-2 pt-2 mb-3">
     <div class="inner">
-      <Values/>
+      <AboutValues/>
     </div>
   </div>
   <div class="inner">
@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import Information from '../components/about/Information'
-import Slider from '../components/about/Slider'
-import Statistics from '../components/about/Statistics'
-import Values from '../components/about/Values'
-import Team from '../components/about/Team'
+import AboutInformation from '../components/about/AboutInformation'
+import AboutSlider from '../components/about/AboutSlider'
+import AboutStatistics from '../components/about/AboutStatistics'
+import AboutValues from '../components/about/AboutValues'
+import AboutTeam from '../components/about/AboutTeam'
 
 export default {
-  components: {Information, Slider, Statistics, Values, Team}
+  components: {AboutInformation, AboutSlider, AboutStatistics, AboutValues, AboutTeam}
 }
 </script>

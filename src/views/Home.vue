@@ -2,20 +2,20 @@
 <section class="home">
   <div class="wrapper_primary">
     <div class="inner">
-      <Welcome/>
+      <HomeWelcome/>
     </div>
   </div>
   <div class="inner">
-    <Progress/>
+    <HomeProgress/>
   </div>
 </section>
 </template>
 
 <script>
-import Welcome from '../components/home/Welcome'
-import Progress from '../components/home/Progress'
+import HomeWelcome from '../components/home/HomeWelcome'
+import HomeProgress from '../components/home/HomeProgress'
 
 export default {
-components: { Welcome, Progress }
+components: { HomeWelcome, HomeProgress }
 }
 </script>
