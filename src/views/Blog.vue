@@ -3,7 +3,11 @@
   <div class="inner">
     <Description class="description_center mb-1" :description="description"/>
     <div class="row">
+      <div class="blog__loader" v-if="loading">
+        <AppLoader/>
+      </div>
       <BlogArticles
+        v-else
         class="blog__content"
         :articles="articles"
         @remove-article="removeArticle"
@@ -21,6 +25,7 @@
 
 <script>
 import Description from '../components/parts/Description'
+import AppLoader from '../components/AppLoader'
 import BlogArticles from '../components/blog/BlogArticles'
 import BlogSidebar from '../components/blog/BlogSidebar'
 import BlogModal from '../components/blog/BlogModal'
@@ -32,6 +37,7 @@ export default {
 setup() {
   const store = useStore()
   const articles = computed(() => store.getters.articles)
+  const loading = ref(false)
   const description = {
     title: 'Geeks Newsroom',
     text: 'Stories, tips, and tools to inspire you to find your most creative self. Subscribe to get curated content delivered directly to your inbox.'
@@ -41,7 +47,11 @@ setup() {
     await store.dispatch('addArticle', article)
     toggleModal()
   }
-  const loadArticles = async () => await store.dispatch('loadArticles')
+  const loadArticles = async () => {
+    loading.value = true
+    await store.dispatch('loadArticles')
+    setTimeout(() => loading.value = false, 750)
+  }
   const removeArticle =  async (id) => await store.dispatch('removeArticle', id)
 
   // Modal begin
@@ -50,15 +60,20 @@ setup() {
   return {
     articles, loadArticles, addArticle, removeArticle,
     description,
-    modal, toggleModal
+    modal, toggleModal, loading
   }
 },
-components: { Description, BlogSidebar, BlogModal, BlogArticles}
+components: { Description, AppLoader, BlogSidebar, BlogModal, BlogArticles}
 }
 </script>
 
 <style lang="scss" scoped>
 .blog {
+  &__loader {
+    @include row_center;
+    width: calc(100% - 300px - 1rem);
+    margin-right: 1rem;
+  }
   &__content {
     width: calc(100% - 300px - 1rem);
     margin-right: 1rem;
