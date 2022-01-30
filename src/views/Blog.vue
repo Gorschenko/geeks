@@ -36,7 +36,7 @@ import {ref, computed, onMounted} from 'vue'
 export default {
 setup() {
   const store = useStore()
-  const articles = computed(() => store.getters.articles)
+  const articles = computed(() => store.getters['articles/articles'])
   const loading = ref(false)
   const description = {
     title: 'Geeks Newsroom',
@@ -44,15 +44,15 @@ setup() {
   }
   onMounted(() => loadArticles())
   const addArticle = async (article) => {
-    await store.dispatch('addArticle', article)
+    await store.dispatch('articles/addArticle', article)
     toggleModal()
   }
   const loadArticles = async () => {
     loading.value = true
-    await store.dispatch('loadArticles')
-    setTimeout(() => loading.value = false, 750)
+    await store.dispatch('articles/loadArticles')
+    setTimeout(() => loading.value = false, 650)
   }
-  const removeArticle =  async (id) => await store.dispatch('removeArticle', id)
+  const removeArticle =  async (id) => await store.dispatch('articles/removeArticle', id)
 
   // Modal begin
   const modal = ref(false)
