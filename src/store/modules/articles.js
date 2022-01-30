@@ -12,7 +12,6 @@ export default {
     },
     loadArticles(state, articles) {
       state.articles = articles
-      console.log(state.articles)
     },
     removeArticle(state, id) {
       state.articles = state.articles.filter(a => a.id !== id)

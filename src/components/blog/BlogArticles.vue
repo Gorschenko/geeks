@@ -10,11 +10,11 @@
         <h1 class="text_smallest text_dark text_hidden mb-1">{{ article.title }}</h1>
         <p class="text text_secondary mb-1">{{ article.content }}</p>
         <router-link
-          class="button button_primary mr-1"
+          class="button primary mr-1"
           to="/home"
         >Подробнее</router-link>
         <button
-          class="button button_secondary"
+          class="button danger"
           @click="$emit('remove-article', article.id)"
         >Удалить</button>
       </li>

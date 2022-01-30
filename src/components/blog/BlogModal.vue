@@ -9,9 +9,9 @@
         class="form__control-select text_smallest"
         v-model="modalCategory"
       >
-        <option value="courses" class="text_smallest">Courses</option>
-        <option value="tutorial" class="text_smallest">Tutorial</option>
-        <option value="company" class="text_smallest">Company</option>
+        <option value="Courses" class="text_smallest">Courses</option>
+        <option value="Tutorial" class="text_smallest">Tutorial</option>
+        <option value="Company" class="text_smallest">Company</option>
       </select>
     </div>
     <div class="form__control mb-1">
@@ -33,11 +33,11 @@
     </div>
     <div class="form__buttons">
       <button
-        class="button button_secondary mr-1"
+        class="button secondary mr-1"
         @click="$emit('close-modal')"
       >Отмена</button>
       <button
-        class="button button_success"
+        class="button success"
         @click="addArticle"
         :disabled="isDisabled"
       >Добавить</button>
@@ -53,7 +53,7 @@ import {ref, computed} from 'vue'
 export default {
   emits: ['close-modal', 'add-article'],
   setup(_, context) {
-    const modalCategory = ref('courses')
+    const modalCategory = ref('Courses')
     const modalTitle = ref(null)
     const modalContent = ref(null)
 

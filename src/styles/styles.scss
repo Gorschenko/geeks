@@ -176,27 +176,6 @@
   font-weight: 600;
   transition: 0.5s;
   cursor: pointer;
-  &_primary {
-    background: $color-primary;
-    color: white;
-    &:hover {
-      background: $color-primary-dark;
-    }
-  }
-  &_secondary {
-    background: white;
-    outline: 1px solid $color-secondary-light;
-    &:hover {
-      background: $color-light;
-    }
-  }
-  &_success {
-    background: $color-success;
-    color: white;
-    &:hover {
-      background: $color-success-dark;
-    }
-  }
   &_circle {
     padding: 1rem;
     border-radius: 50%;
@@ -246,7 +225,35 @@ body {
 }
 
 .primary {
-  color: $color-primary;
+  background: $color-primary;
+  color: white;
+  &:hover {
+    background: $color-primary-dark;
+  }
+}
+
+.danger {
+  background: $color-danger;
+  color: white;
+  &:hover {
+    background: $color-danger-dark;
+  }
+}
+
+.success {
+  background: $color-success;
+  color: white;
+  &:hover {
+    background: $color-success-dark;
+  }
+}
+
+.secondary {
+  background: white;
+  outline: 1px solid $color-secondary-light;
+  &:hover {
+    background: $color-light;
+  }
 }
 
 

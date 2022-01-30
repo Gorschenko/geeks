@@ -1,6 +1,6 @@
 <template>
 <section class="slider">
-  <button class="button button_circle button_primary slider__button" @click="preview">&#8592;</button>
+  <button class="button button_circle primary slider__button" @click="preview">&#8592;</button>
   <div class="slider__list-wrapper">
     <ul class="slider__list" :style="`width: ${width}px`">
       <li class="slider__list-item" v-for="n in number" :style="style">
@@ -8,7 +8,7 @@
       </li>
     </ul>
   </div>
-  <button class="button button_circle button_primary slider__button" @click="next">&#8594;</button>
+  <button class="button button_circle primary slider__button" @click="next">&#8594;</button>
 </section>
 </template>
 
