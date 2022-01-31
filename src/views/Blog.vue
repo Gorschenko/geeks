@@ -20,7 +20,7 @@
     @close-modal="toggleModal"
     @add-article="addArticle"
   />
-  <AppAlert v-if="alert"/>
+  <AppAlert :alert="alert" @close-alert="toggleAlert"/>
 </section>
 </template>
 
@@ -34,7 +34,7 @@ import AppAlert from '../components/AppAlert'
 
 import {useAlert} from '../use/alert'
 import {useStore} from 'vuex'
-import {ref, computed, onMounted} from 'vue'
+import {ref, computed, onMounted, toRefs} from 'vue'
 
 export default {
 setup() {
@@ -49,25 +49,29 @@ setup() {
   const addArticle = async (article) => {
     await store.dispatch('articlesModule/addArticle', article)
     toggleModal()
+    alert.visible = true
+    alert.type = 'primary'
+    alert.title = 'Успешно!'
+    alert.text = 'Статья добавлена.'
   }
   const loadArticles = async () => {
     loading.value = true
     await store.dispatch('articlesModule/loadArticles')
     setTimeout(() => loading.value = false, 600)
-    alert.value = true
   }
   const removeArticle =  async (id) => await store.dispatch('articlesModule/removeArticle', id)
 
   // Modal begin
   const modal = ref(false)
   const toggleModal = () => modal.value = !modal.value
-  // Alert begin
+
   const {alert, toggleAlert} = useAlert()
   return {
     articles, loadArticles, addArticle, removeArticle,
     description,
     modal, toggleModal, loading,
-    alert, toggleAlert
+    alert, toggleAlert,
+    ...toRefs(alert)
   }
 },
 components: { Description, AppLoader, BlogSidebar, BlogModal, BlogArticles, AppAlert}

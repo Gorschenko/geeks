@@ -51,26 +51,24 @@
 import {ref, computed} from 'vue'
 
 export default {
-  emits: ['close-modal', 'add-article'],
-  setup(_, context) {
-    const modalCategory = ref('Courses')
-    const modalTitle = ref(null)
-    const modalContent = ref(null)
-
-    function addArticle() {
-      context.emit('add-article', {
-        category: modalCategory.value,
-        title: modalTitle.value,
-        content: modalContent.value
-      })
-    }
-
-    return {
-      modalCategory, modalTitle, modalContent,
-      isDisabled: computed(() => !modalCategory.value || !modalTitle.value || !modalContent.value),
-      addArticle
-    }
+emits: ['close-modal', 'add-article'],
+setup(_, context) {
+  const modalCategory = ref('Courses')
+  const modalTitle = ref(null)
+  const modalContent = ref(null)
+  function addArticle() {
+    context.emit('add-article', {
+      category: modalCategory.value,
+      title: modalTitle.value,
+      content: modalContent.value
+    })
   }
+  return {
+    modalCategory, modalTitle, modalContent,
+    isDisabled: computed(() => !modalCategory.value || !modalTitle.value || !modalContent.value),
+    addArticle
+  }
+}
 }
 </script>
 
