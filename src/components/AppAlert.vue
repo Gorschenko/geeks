@@ -15,7 +15,7 @@
 <script>
 export default {
 emits: ['close-alert'],
-props: ['alert']
+props: ['alert'],
 }
 </script>
 <style scoped lang="scss">
@@ -23,10 +23,12 @@ props: ['alert']
   @include container;
   position: fixed;
   z-index: 1;
+  background: $color-light;
   bottom: 20px;
   right: 20px;
-  min-width: 200px;
-  max-width: 300px;
+  min-width: 300px;
+  max-width: 400px;
+  min-height: 100px;
 
   &_primary {
     border-left: 10px solid $color-success;

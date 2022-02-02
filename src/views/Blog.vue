@@ -52,14 +52,31 @@ setup() {
     alert.visible = true
     alert.type = 'primary'
     alert.title = 'Успешно!'
-    alert.text = 'Статья добавлена.'
+    alert.text = 'Созданная статья добавлена.'
+    setTimeout(() => alert.visible = false, 2000)
   }
   const loadArticles = async () => {
     loading.value = true
     await store.dispatch('articlesModule/loadArticles')
-    setTimeout(() => loading.value = false, 600)
+    setTimeout(() => {
+      loading.value = false
+      alert.visible = true
+      alert.type = 'primary'
+      alert.title = 'Успешно!'
+      alert.text = 'Все статьи загружены.'
+    }, 600)
+    setTimeout(() => alert.visible = false, 2600)
+
   }
-  const removeArticle =  async (id) => await store.dispatch('articlesModule/removeArticle', id)
+  const removeArticle =  async (id) => {
+    await store.dispatch('articlesModule/removeArticle', id)
+    alert.visible = true
+    alert.type = 'primary'
+    alert.title = 'Успешно!'
+    alert.text = 'Выбранная статья удалена.'
+    setTimeout(() => alert.visible = false, 2000)
+
+  }
 
   // Modal begin
   const modal = ref(false)

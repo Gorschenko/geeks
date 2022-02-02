@@ -7,8 +7,8 @@
         :key="article.id"
       >
         <span class="text text_bold text_primary mb-1">{{ article.category }}</span>
-        <h1 class="text_smallest text_dark text_hidden mb-1">{{ article.title }}</h1>
-        <p class="text text_secondary mb-1">{{ article.content }}</p>
+        <h1 class="articles__list-item-title mb-1">{{ article.title }}</h1>
+        <p class="articles__list-item-content mb-1">{{ article.content }}</p>
         <router-link
           class="button primary mr-1"
           to="/home"
@@ -40,6 +40,19 @@ props: ['articles']
       margin: 0 0.5rem 0.5rem 0.5rem;
       background: white;
       transition: all 0.5s ease;
+      &-title {
+        overflow: hidden;
+        min-height: 25px;
+        max-height: 25px;
+        font-size: 1.25rem;
+        color: $color-dark;
+      }
+      &-content {
+        overflow: hidden;
+        min-height: 55px;
+        max-height: 55px;
+        color: $color-secondary;
+      }
     }
   }
 }

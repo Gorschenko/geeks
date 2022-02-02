@@ -1,0 +1,16 @@
+@mixin row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin row_center {
+  @include row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin container {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: $shadow-secondary-light;
+}
