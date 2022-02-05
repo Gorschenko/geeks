@@ -3,8 +3,8 @@
   <select class="select" v-model="selectValue">
     <option value="default">По умолчанию</option>
     <option value="name">По наименованию</option>
-    <option value="max">По возрастанию</option>
-    <option value="min">По убыванию</option>
+    <!-- <option value="max">По возрастанию</option>
+    <option value="min">По убыванию</option> -->
   </select>
 </div>
 </template>
