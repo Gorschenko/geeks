@@ -20,7 +20,7 @@
     @close-modal="toggleModal"
     @add-article="addArticle"
   />
-  <AppAlert :alert="alert" @close-alert="toggleAlert"/>
+  <AppAlert :alert="alert"/>
 </section>
 </template>
 
@@ -46,49 +46,34 @@ setup() {
     text: 'Stories, tips, and tools to inspire you to find your most creative self. Subscribe to get curated content delivered directly to your inbox.'
   }
   onMounted(() => loadArticles())
-  const addArticle = async (article) => {
-    await store.dispatch('articlesModule/addArticle', article)
+  const addArticle = (article) => {
+    store.dispatch('articlesModule/addArticle', article)
     toggleModal()
-    alert.visible = true
-    alert.type = 'primary'
-    alert.title = 'Успешно!'
-    alert.text = 'Созданная статья добавлена.'
-    setTimeout(() => alert.visible = false, 2000)
+    setAlert(true, 'primary', 'Созданная статья добавлена.')
   }
-  const loadArticles = async () => {
+  const loadArticles = () => {
     loading.value = true
-    await store.dispatch('articlesModule/loadArticles')
+    store.dispatch('articlesModule/loadArticles')
     setTimeout(() => {
       loading.value = false
-      alert.visible = true
-      alert.type = 'primary'
-      alert.title = 'Успешно!'
-      alert.text = 'Все статьи загружены.'
+      setAlert(true, 'primary', 'Все статьи загружены.')
     }, 600)
-    setTimeout(() => alert.visible = false, 2600)
-
   }
-  const removeArticle =  async (id) => {
-    await store.dispatch('articlesModule/removeArticle', id)
-    alert.visible = true
-    alert.type = 'primary'
-    alert.title = 'Успешно!'
-    alert.text = 'Выбранная статья удалена.'
-    setTimeout(() => alert.visible = false, 2000)
-
+  const removeArticle =  (id) => {
+    store.dispatch('articlesModule/removeArticle', id)
+    setAlert(true, 'primary', 'Выбранная статья удалена.')
   }
 
   // Modal begin
   const modal = ref(false)
   const toggleModal = () => modal.value = !modal.value
 
-  const {alert, toggleAlert} = useAlert()
+  const {alert, toggleAlert, setAlert} = useAlert()
   return {
     articles, loadArticles, addArticle, removeArticle,
     description,
     modal, toggleModal, loading,
-    alert, toggleAlert,
-    ...toRefs(alert)
+    alert, toggleAlert, setAlert, ...toRefs(alert),
   }
 },
 components: { Description, AppLoader, BlogSidebar, BlogModal, BlogArticles, AppAlert}

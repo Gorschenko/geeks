@@ -3,10 +3,14 @@ import { reactive } from 'vue'
 export function useAlert() {
   const alert = reactive({
     visible: false,
-    type: 'primary',
-    title: 'Успешно!',
-    text: 'Статьи созданы.'
+    type: '',
+    text: ''
   })
   const toggleAlert = () => alert.visible = !alert.visible
-  return { alert, toggleAlert }
+  const setAlert = (visible, type, text) => {
+    alert.visible = visible
+    alert.type = type
+    alert.text = text
+  }
+  return { alert, toggleAlert, setAlert }
 }

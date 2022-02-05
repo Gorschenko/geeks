@@ -6,16 +6,19 @@
     'alert_primary': alert.type === 'primary',
     'alert_danger': alert.type === 'danger'
   }"
-  @click="$emit('close-alert')"
 >
-  <h1 class="text mb-05">{{ alert.title }}</h1>
+  <h1 class="text mb-05">{{ alert.type === 'primary' ? 'Успешно!' : 'Ошибка!' }}</h1>
   <p class="text">{{ alert.text }}</p>
 </div>
 </template>
 <script>
+import {onUpdated} from 'vue'
+
 export default {
-emits: ['close-alert'],
 props: ['alert'],
+setup(props) {
+  onUpdated(() => setTimeout(() => props.alert.visible = false, 1500))
+}
 }
 </script>
 <style scoped lang="scss">
@@ -28,7 +31,6 @@ props: ['alert'],
   right: 20px;
   min-width: 300px;
   max-width: 400px;
-  min-height: 100px;
 
   &_primary {
     border-left: 10px solid $color-success;
