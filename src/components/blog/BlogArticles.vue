@@ -34,6 +34,7 @@ export default {
   &__list {
     @include row;
     width: 100%;
+    margin: 0 -0.5rem;
     &-item {
       @include container;
       width: calc(100%/3 - 1rem);

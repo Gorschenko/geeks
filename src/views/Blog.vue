@@ -1,7 +1,8 @@
 <template>
 <section class="blog mt-2">
   <div class="inner">
-    <Description class="description_center mb-1" :description="description"/>
+    <Description class="description_center mb-2" :description="description"/>
+    <BlogFilter v-model="filterValue" class="mb-1"/>
     <div class="row">
       <div class="blog__loader" v-if="loading">
         <AppLoader/>
@@ -26,6 +27,7 @@
 
 <script>
 import Description from '../components/parts/Description'
+import BlogFilter from '../components/blog/BlogFilter'
 import AppLoader from '../components/AppLoader'
 import BlogArticles from '../components/blog/BlogArticles'
 import BlogSidebar from '../components/blog/BlogSidebar'
@@ -69,14 +71,17 @@ setup() {
   const toggleModal = () => modal.value = !modal.value
 
   const {alert, toggleAlert, setAlert} = useAlert()
+
+  const filterValue = ref('default')
   return {
     articles, loadArticles, addArticle, removeArticle,
     description,
     modal, toggleModal, loading,
     alert, toggleAlert, setAlert, ...toRefs(alert),
+    filterValue
   }
 },
-components: { Description, AppLoader, BlogSidebar, BlogModal, BlogArticles, AppAlert}
+components: { Description, BlogFilter, AppLoader, BlogSidebar, BlogModal, BlogArticles, AppAlert}
 }
 </script>
 
