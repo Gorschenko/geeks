@@ -4,7 +4,7 @@
     <h1 class="text_small mb-1">Для создания статьи заполните форму</h1>
     <div class="form__control mb-1">
       <label for="category" class="text text_smallest mb-05">Выберите категорию:</label>
-      <select 
+      <select
         id="category"
         class="form__control-select text_smallest"
         v-model="modalCategory"

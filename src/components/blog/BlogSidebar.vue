@@ -9,7 +9,7 @@
 
 <script>
 export default {
-emits: ['add-article']
+  emits: ['add-article']
 }
 </script>
 

@@ -7,6 +7,7 @@ import About from '../views/About'
 import Contact from '../views/Contact'
 import Terms from '../views/Terms'
 import Policy from '../views/Policy'
+import Article from '../views/Article'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -15,7 +16,7 @@ const router = createRouter({
       name: 'Home',
       component: Home,
       alias: '/',
-      meta: { navigation: 'header' }
+      meta: {}
     },
     {
       path: '/about',
@@ -58,6 +59,13 @@ const router = createRouter({
       name: 'Privacy Policy',
       component: Policy,
       meta: { navigation: 'footer' }
+    },
+    {
+      path: '/article/:articleId',
+      name: 'Article',
+      component: Article,
+      meta: {},
+      props: true
     }
   ],
   linkActiveClass: 'active',

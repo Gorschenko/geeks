@@ -1,8 +1,8 @@
 <template>
   <section class="articles">
     <transition-group class="articles__list" name="list" tag="ul">
-      <li 
-        class="articles__list-item" 
+      <li
+        class="articles__list-item"
         v-for="article in articles"
         :key="article.id"
       >
@@ -11,7 +11,7 @@
         <p class="articles__list-item-content mb-1">{{ article.content }}</p>
         <router-link
           class="button primary mr-1"
-          to="/home"
+          :to="'/article/' + article.id"
         >Подробнее</router-link>
         <button
           class="button danger"
@@ -24,8 +24,8 @@
 
 <script>
 export default {
-emits: ['remove-article'],
-props: ['articles']
+  emits: ['remove-article'],
+  props: ['articles']
 }
 </script>
 
