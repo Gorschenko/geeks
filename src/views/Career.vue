@@ -5,9 +5,21 @@
       <Description :description="descriptionTop"/>
       <CareerGallery/>
     </div>
-    <Description class="mb-2" :description="descriptionBottom"/>
-    <CareerFilter class="mb-2"/>
   </div>
+   <div class="wrapper wrapper_light">
+      <div class="inner">
+        <Description class="mb-2" :description="descriptionBottom"/>
+        <CareerFilter class="mb-2"/>
+        <ul class="career__list">
+          <li class="career__list-item">
+            <span class="text text_smallest text_secondary">Должность</span>
+            <span class="text text_smallest text_secondary">Локация</span>
+            <span class="text text_smallest text_secondary">Направление</span>
+            <button class="button button_primary">Подробнее</button>
+          </li>
+        </ul>
+      </div>
+    </div>
 </section>
 </template>
 
@@ -39,13 +51,14 @@ components: { Description, CareerGallery, CareerFilter }
   &__row {
     @include row_space-between;
   }
-}
-.info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50vh;
-  background: lightseagreen;
+  &__list {
+    &-item {
+      @include row_space-between;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: $border-secondary-light;
+    }
+  }
 }
 </style>
