@@ -9,6 +9,12 @@
   align-items: center;
 }
 
+@mixin row_space-between {
+  @include row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @mixin container {
   padding: 20px;
   border-radius: 5px;

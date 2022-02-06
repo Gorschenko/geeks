@@ -89,11 +89,81 @@ export const store = createStore({
         { female: 'Holland', name: 'Charlie', position: 'Designer' },
         { female: 'Butler', name: 'James', position: 'Manager' },
       ],
+      vacancies: [{
+          position: 'Marketing Designer',
+          industry: 'Design',
+          location: 'San Francisco',
+          mode: 'Remote'
+        },
+        {
+          position: 'Product Design Lead',
+          industry: 'Design',
+          location: 'United Kingdom',
+          mode: 'Full-time'
+        },
+        {
+          position: 'Brand Designer',
+          industry: 'Design',
+          location: 'Canada',
+          mode: 'Remote'
+        },
+        {
+          position: 'Sr. UX Engineer',
+          industry: 'Design',
+          location: 'Ireland',
+          mode: 'Remote'
+        },
+        {
+          position: 'Principal Data Engineer',
+          industry: 'Engineering',
+          location: 'Ireland',
+          mode: 'Remote'
+        },
+        {
+          position: 'Sr. React Engineer',
+          industry: 'Engineering',
+          location: 'Ireland',
+          mode: 'Remote'
+        },
+        {
+          position: 'Sr. Engineering Manager',
+          industry: 'Engineering',
+          location: 'Canada',
+          mode: 'Remote'
+        },
+        {
+          position: 'Software Engineer Ruby on Rails',
+          industry: 'Engineering',
+          location: 'United Kingdom',
+          mode: 'Remote'
+        },
+        {
+          position: 'Customer Success Manager',
+          industry: ' Administrative',
+          location: 'United Kingdom',
+          mode: 'Full-time'
+        },
+        {
+          position: 'Account Executive',
+          industry: ' Administrative',
+          location: 'Philippines',
+          mode: 'Remote'
+        },
+        {
+          position: 'Sales Development Representative',
+          industry: ' Administrative',
+          location: 'Canada',
+          mode: 'Full-time'
+        }
+      ]
     }
   },
   getters: {
     courses(state) {
       return state.courses
+    },
+    vacancies(state) {
+      return state.vacancies
     }
   },
   modules: { articlesModule }

@@ -5,7 +5,7 @@
     <AboutSlider class="mb-3"/>
     <AboutStatistics class="mb-3"/>
   </div>
-  <div class="wrapper_light pb-2 pt-2 mb-3">
+  <div class="wrapper wrapper_light mb-3">
     <div class="inner">
       <AboutValues/>
     </div>

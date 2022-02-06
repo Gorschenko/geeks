@@ -19,27 +19,27 @@ const router = createRouter({
       meta: {}
     },
     {
-      path: '/about',
-      name: 'About',
-      component: About,
-      meta: { navigation: 'header' }
-    },
-    {
       path: '/courses',
       name: 'Courses',
       component: Courses,
       meta: { navigation: 'header' }
     },
     {
-      path: '/career',
-      name: 'Career',
-      component: Career,
-      meta: { navigation: 'header' }
-    },
-    {
       path: '/blog',
       name: 'Blog',
       component: Blog,
+      meta: { navigation: 'header' }
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About,
+      meta: { navigation: 'header' }
+    },
+    {
+      path: '/career',
+      name: 'Career',
+      component: Career,
       meta: { navigation: 'header' }
     },
     {
