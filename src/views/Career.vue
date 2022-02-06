@@ -10,14 +10,7 @@
       <div class="inner">
         <Description class="mb-2" :description="descriptionBottom"/>
         <CareerFilter class="mb-2"/>
-        <ul class="career__list">
-          <li class="career__list-item">
-            <span class="text text_smallest text_secondary">Должность</span>
-            <span class="text text_smallest text_secondary">Локация</span>
-            <span class="text text_smallest text_secondary">Направление</span>
-            <button class="button button_primary">Подробнее</button>
-          </li>
-        </ul>
+        <CareerVacancies :vacancies="vacancies"/>
       </div>
     </div>
 </section>
@@ -27,6 +20,8 @@
 import Description from '../components/parts/Description'
 import CareerGallery from '../components/career/CareerGallery'
 import CareerFilter from '../components/career/CareerFilter'
+import CareerVacancies from '../components/career/CareerVacancies'
+import {useStore} from 'vuex'
 
 export default {
 setup() {
@@ -38,11 +33,14 @@ setup() {
     title: 'All open positions',
     text: 'We are looking for enthusiastic collaborators who are passionate about their craft to be a part of our journey building technology that is a force for positive change in the world.'
   }
+  const store = useStore()
+  const vacancies = store.getters.vacancies
   return {
-    descriptionTop, descriptionBottom
+    descriptionTop, descriptionBottom,
+    vacancies
   }
 },
-components: { Description, CareerGallery, CareerFilter }
+components: { Description, CareerGallery, CareerFilter, CareerVacancies }
 }
 </script>
 
@@ -50,15 +48,6 @@ components: { Description, CareerGallery, CareerFilter }
 .career {
   &__row {
     @include row_space-between;
-  }
-  &__list {
-    &-item {
-      @include row_space-between;
-      width: 100%;
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: $border-secondary-light;
-    }
   }
 }
 </style>

@@ -89,7 +89,7 @@ export const store = createStore({
         { female: 'Holland', name: 'Charlie', position: 'Designer' },
         { female: 'Butler', name: 'James', position: 'Manager' },
       ],
-      work: [{
+      vacancies: [{
           position: 'Marketing Designer',
           industry: 'Design',
           location: 'San Francisco',
@@ -161,6 +161,9 @@ export const store = createStore({
   getters: {
     courses(state) {
       return state.courses
+    },
+    vacancies(state) {
+      return state.vacancies
     }
   },
   modules: { articlesModule }
