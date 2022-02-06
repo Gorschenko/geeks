@@ -4,7 +4,7 @@
     <h1 class="text_small mb-1">Для создания статьи заполните форму</h1>
     <div class="form__control mb-1">
       <label for="category" class="text text_smallest mb-05">Выберите категорию:</label>
-      <select 
+      <select
         id="category"
         class="form__control-select text_smallest"
         v-model="modalCategory"
@@ -33,11 +33,11 @@
     </div>
     <div class="form__buttons">
       <button
-        class="button secondary mr-1"
+        class="button button_secondary mr-1"
         @click="$emit('close-modal')"
       >Отмена</button>
       <button
-        class="button success"
+        class="button button_success"
         @click="addArticle"
         :disabled="isDisabled"
       >Добавить</button>
@@ -60,7 +60,8 @@ setup(_, context) {
     context.emit('add-article', {
       category: modalCategory.value,
       title: modalTitle.value,
-      content: modalContent.value
+      content: modalContent.value,
+      date: new Date().toLocaleDateString()
     })
   }
   return {

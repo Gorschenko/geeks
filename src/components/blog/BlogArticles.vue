@@ -1,20 +1,21 @@
 <template>
   <section class="articles">
     <transition-group class="articles__list" name="list" tag="ul">
-      <li 
-        class="articles__list-item" 
+      <li
+        class="articles__list-item"
         v-for="article in articles"
         :key="article.id"
       >
         <span class="text text_bold text_primary mb-1">{{ article.category }}</span>
         <h1 class="articles__list-item-title mb-1">{{ article.title }}</h1>
         <p class="articles__list-item-content mb-1">{{ article.content }}</p>
+        <span class="text text_dark mb-1">{{ article.date }}</span>
         <router-link
-          class="button primary mr-1"
-          to="/home"
+          class="button button_primary mr-1"
+          :to="'/article/' + article.id"
         >Подробнее</router-link>
         <button
-          class="button danger"
+          class="button button_danger"
           @click="$emit('remove-article', article.id)"
         >Удалить</button>
       </li>
@@ -24,8 +25,8 @@
 
 <script>
 export default {
-emits: ['remove-article'],
-props: ['articles']
+  emits: ['remove-article'],
+  props: ['articles']
 }
 </script>
 
@@ -34,6 +35,7 @@ props: ['articles']
   &__list {
     @include row;
     width: 100%;
+    margin: 0 -0.5rem;
     &-item {
       @include container;
       width: calc(100%/3 - 1rem);

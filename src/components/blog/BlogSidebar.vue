@@ -1,7 +1,7 @@
 <template>
 <aside class="aside">
   <button
-    class="button success mb-1"
+    class="button button_success mb-1"
     @click="$emit('add-article')"
   >Добавить статью</button>
 </aside>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-emits: ['add-article']
+  emits: ['add-article']
 }
 </script>
 

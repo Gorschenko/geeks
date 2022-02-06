@@ -160,6 +160,34 @@
   font-weight: 600;
   transition: 0.5s;
   cursor: pointer;
+  &_primary {
+    background: $color-primary;
+    color: white;
+    &:hover {
+      background: $color-primary-dark;
+    }
+  }
+  &_success {
+    background: $color-success;
+    color: white;
+    &:hover {
+      background: $color-success-dark;
+    }
+  }
+  &_secondary {
+    background: white;
+    outline: 1px solid $color-secondary-light;
+    &:hover {
+      background: $color-light;
+    }
+  }
+  &_danger {
+    background: $color-danger;
+    color: white;
+    &:hover {
+      background: $color-danger-dark;
+    }
+  }
   &_circle {
     padding: 1rem;
     border-radius: 50%;
@@ -175,10 +203,6 @@
 
 
 /* different properties */
-
-body {
-  background: white
-}
 
 .wrapper {
   &_light {
@@ -200,44 +224,8 @@ body {
   display: flex;
 }
 
-.red {
-  background: red;
-}
-
 .active {
   border-bottom: 2px solid $color-primary;
-}
-
-.primary {
-  background: $color-primary;
-  color: white;
-  &:hover {
-    background: $color-primary-dark;
-  }
-}
-
-.danger {
-  background: $color-danger;
-  color: white;
-  &:hover {
-    background: $color-danger-dark;
-  }
-}
-
-.success {
-  background: $color-success;
-  color: white;
-  &:hover {
-    background: $color-success-dark;
-  }
-}
-
-.secondary {
-  background: white;
-  outline: 1px solid $color-secondary-light;
-  &:hover {
-    background: $color-light;
-  }
 }
 
 

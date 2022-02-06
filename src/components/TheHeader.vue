@@ -10,8 +10,8 @@
     <Search/>
   </div>
   <div class="header__inner">
-    <button class="button secondary mr-1">Sign In</button>
-    <button class="button primary">Sign Up</button>
+    <button class="button button_secondary mr-1">Sign In</button>
+    <button class="button button_primary">Sign Up</button>
   </div>
 </header>
 </template>

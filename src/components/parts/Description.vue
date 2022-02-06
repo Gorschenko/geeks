@@ -15,8 +15,5 @@ props: ['description']
 .description {
   max-width: 600px;
   margin-bottom: 1rem;
-  &_center {
-    margin: 0 auto;
-  }
 }
 </style>
