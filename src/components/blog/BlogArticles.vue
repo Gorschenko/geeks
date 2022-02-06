@@ -9,12 +9,13 @@
         <span class="text text_bold text_primary mb-1">{{ article.category }}</span>
         <h1 class="articles__list-item-title mb-1">{{ article.title }}</h1>
         <p class="articles__list-item-content mb-1">{{ article.content }}</p>
+        <span class="text text_dark mb-1">{{ article.date }}</span>
         <router-link
-          class="button primary mr-1"
+          class="button button_primary mr-1"
           :to="'/article/' + article.id"
         >Подробнее</router-link>
         <button
-          class="button danger"
+          class="button button_danger"
           @click="$emit('remove-article', article.id)"
         >Удалить</button>
       </li>

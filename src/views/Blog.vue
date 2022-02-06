@@ -85,7 +85,7 @@ setup() {
     if (filterValue.value === 'name') {
       return articles.value.slice().sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1)
     }
-    return store.getters['articlesModule/articles']
+    return articles.value
   })
   // Filter end
   return {

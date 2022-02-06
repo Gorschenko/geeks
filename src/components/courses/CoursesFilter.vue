@@ -2,7 +2,7 @@
 <aside class="filter">
     <header class="filter__header">
       <span class="filter__header-title">Filter</span>
-      <button class="button secondary" @click="clear">Clear</button>
+      <button class="button button_secondary" @click="clear">Clear</button>
     </header>
     <section class="filter__main">
       <form class="filter__form">

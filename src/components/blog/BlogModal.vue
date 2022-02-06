@@ -33,11 +33,11 @@
     </div>
     <div class="form__buttons">
       <button
-        class="button secondary mr-1"
+        class="button button_secondary mr-1"
         @click="$emit('close-modal')"
       >Отмена</button>
       <button
-        class="button success"
+        class="button button_success"
         @click="addArticle"
         :disabled="isDisabled"
       >Добавить</button>
@@ -60,7 +60,8 @@ setup(_, context) {
     context.emit('add-article', {
       category: modalCategory.value,
       title: modalTitle.value,
-      content: modalContent.value
+      content: modalContent.value,
+      date: new Date().toLocaleDateString()
     })
   }
   return {

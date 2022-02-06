@@ -5,11 +5,11 @@
       <p class="text_smaller text_secondary-dark mb-1">Hand-picked Instructor and expertly crafted courses, designed for the modern students and entrepreneur.</p>
       <div class="welcome__buttons">
         <button
-          class="button success mr-1"
+          class="button button_success mr-1"
           @click="$router.push('/courses')"
         >Browse courses</button>
         <button
-          class="button secondary"
+          class="button button_secondary"
           @click="$router.push('/career')"
         >Are you Instructor?</button>
       </div>
@@ -35,7 +35,7 @@
     height: 50px;
     display: flex;
   }
-  
+
   &__image {
     display: block;
     max-width: 553px;
