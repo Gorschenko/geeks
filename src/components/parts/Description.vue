@@ -14,6 +14,5 @@ props: ['description']
 <style lang="scss">
 .description {
   max-width: 600px;
-  margin-bottom: 1rem;
 }
 </style>

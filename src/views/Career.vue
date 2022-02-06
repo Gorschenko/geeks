@@ -1,8 +1,9 @@
 <template>
 <section class="career mt-2">
   <div class="inner">
-    <div class="career__row">
+    <div class="career__row mb-2">
       <Description :description="description"/>
+      <CareerGallery/>
     </div>
   </div>
   <section class="info">
@@ -13,10 +14,9 @@
 
 <script>
 import Description from '../components/parts/Description'
+import CareerGallery from '../components/career/CareerGallery'
 
 export default {
-components: { Description },
-
 setup() {
   const description = {
     title: 'Join the team, we are growing fast!',
@@ -25,16 +25,15 @@ setup() {
   return {
     description
   }
-}
+},
+components: { Description, CareerGallery }
 }
 </script>
 
 <style scoped lang="scss">
 .career {
   &__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include row-center;
   }
 }
 .info {
