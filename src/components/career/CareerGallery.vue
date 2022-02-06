@@ -1,5 +1,5 @@
 <template>
-<div class="gallery">
+<section class="gallery">
   <div class="gallery__column">
     <img src="../../assets/image/avatars/avatar-medium-bell.jpg" class="gallery__column-image gallery__column-image_small">
     <img src="../../assets/image/avatars/avatar-medium-holler.jpg" class="gallery__column-image gallery__column-image_long">
@@ -13,7 +13,7 @@
     <img src="../../assets/image/avatars/avatar-medium-pinto.jpg" class="gallery__column-image gallery__column-image_small">
     <img src="../../assets/image/avatars/avatar-medium-holland.jpg" class="gallery__column-image gallery__column-image_small">
   </div>
-</div>
+</section>
 </template>
 <style lang="scss" scoped>
 .gallery {

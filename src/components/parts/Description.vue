@@ -1,8 +1,8 @@
 <template>
-<div class="description">
+<section class="description">
   <h1 class="text_biggest text_dark mb-1">{{ description.title }}</h1>
   <p class="text_smaller text_secondary">{{ description.text }}</p>
-</div>
+</section>
 </template>
 
 <script>
