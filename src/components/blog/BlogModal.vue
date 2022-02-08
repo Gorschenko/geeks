@@ -76,7 +76,7 @@ setup(_, context) {
 <style lang="scss" scoped>
 .modal {
   &__form {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     z-index: 999;
@@ -87,7 +87,7 @@ setup(_, context) {
     background: white;
   }
   &__overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1;

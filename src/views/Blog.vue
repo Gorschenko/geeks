@@ -85,6 +85,10 @@ setup() {
     if (filterValue.value === 'name') {
       return articles.value.slice().sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1)
     }
+    if (filterValue.value === 'date') {
+      return articles.value.slice().sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1)
+
+    }
     return articles.value
   })
   // Filter end
