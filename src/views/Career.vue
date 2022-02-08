@@ -10,7 +10,7 @@
       <div class="inner">
         <Description class="mb-2" :description="descriptionBottom"/>
         <CareerFilter class="mb-2"/>
-        <CareerVacancies :vacancies="vacancies"/>
+        <CareerVacancies :vacancies="filtredVacancies"/>
       </div>
     </div>
 </section>
@@ -22,6 +22,7 @@ import CareerGallery from '../components/career/CareerGallery'
 import CareerFilter from '../components/career/CareerFilter'
 import CareerVacancies from '../components/career/CareerVacancies'
 import {useStore} from 'vuex'
+import {computed} from 'vue'
 
 export default {
 setup() {
@@ -35,9 +36,12 @@ setup() {
   }
   const store = useStore()
   const vacancies = store.getters.vacancies
+  const filtredVacancies = computed(() => {
+    return vacancies
+  })
   return {
     descriptionTop, descriptionBottom,
-    vacancies
+    vacancies, filtredVacancies
   }
 },
 components: { Description, CareerGallery, CareerFilter, CareerVacancies }

@@ -1,12 +1,12 @@
 <template>
 <section class="vacancies">
-  <span class="text text_smallest mb-1">Всего вакансий: {{ vacancies.length }}</span>
+  <span class="text text_smallest mb-1">Всего вакансий: </span>
   <ul class="vacancies__list">
     <li class="vacancies__list-item" v-for="vacancy in vacancies">
-      <span class="text text_smallest text_secondary">Должность</span>
-      <span class="text text_smallest text_secondary">Локация</span>
-      <span class="text text_smallest text_secondary">Направление</span>
-      <button class="button button_primary">Подробнее</button>
+      <span class="vacancies__list-item-info">{{ vacancy.position }}</span>
+      <span class="vacancies__list-item-info">{{ vacancy.location }}</span>
+      <span class="vacancies__list-item-info">{{ vacancy.industry }}</span>
+      <button class="button button_primary">View details</button>
     </li>
   </ul>
 </section>
@@ -30,6 +30,11 @@ setup() {
       margin-bottom: 1rem;
       padding-bottom: 1rem;
       border-bottom: $border-secondary-light;
+      &-info {
+        font-size: 1.25rem;
+        color: $color-secondary;
+        width: calc(100%/4);
+      }
     }
   }
 }
