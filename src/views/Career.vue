@@ -9,7 +9,7 @@
    <div class="wrapper wrapper_light">
       <div class="inner">
         <Description class="mb-2" :description="descriptionBottom"/>
-        <CareerFilter class="mb-2"/>
+        <CareerFilter v-model="filterValue" class="mb-2"/>
         <CareerVacancies :vacancies="filtredVacancies"/>
       </div>
     </div>
@@ -22,7 +22,7 @@ import CareerGallery from '../components/career/CareerGallery'
 import CareerFilter from '../components/career/CareerFilter'
 import CareerVacancies from '../components/career/CareerVacancies'
 import {useStore} from 'vuex'
-import {computed} from 'vue'
+import {computed, ref} from 'vue'
 
 export default {
 setup() {
@@ -34,14 +34,33 @@ setup() {
     title: 'All open positions',
     text: 'We are looking for enthusiastic collaborators who are passionate about their craft to be a part of our journey building technology that is a force for positive change in the world.'
   }
+
   const store = useStore()
-  const vacancies = store.getters.vacancies
-  const filtredVacancies = computed(() => {
-    return vacancies
-  })
+  const filterValue = ref({})
+  const filtredVacancies = computed(() => store.getters.vacancies
+    .filter(vacancy => {
+      if (filterValue.value.position) {
+        return vacancy.position.includes(filterValue.value.position)
+      }
+      return vacancy
+    })
+    .filter(vacancy => {
+      if(filterValue.value.location) {
+        return vacancy.location.includes(filterValue.value.location)
+      }
+      return vacancy
+    })
+    .filter(vacancy => {
+      if (filterValue.value.category) {
+        return vacancy.industry === filterValue.value.category
+      }
+      return vacancy
+    })
+  )
+
   return {
     descriptionTop, descriptionBottom,
-    vacancies, filtredVacancies
+    filterValue, filtredVacancies
   }
 },
 components: { Description, CareerGallery, CareerFilter, CareerVacancies }

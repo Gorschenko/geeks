@@ -1,6 +1,6 @@
 <template>
 <section class="vacancies">
-  <span class="text text_smallest mb-1">Всего вакансий: </span>
+  <span class="text text_small mb-1">Всего вакансий: {{vacancies.length}}</span>
   <ul class="vacancies__list">
     <li class="vacancies__list-item" v-for="vacancy in vacancies">
       <span class="vacancies__list-item-info">{{ vacancy.position }}</span>

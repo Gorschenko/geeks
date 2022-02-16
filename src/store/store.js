@@ -139,19 +139,19 @@ export const store = createStore({
         },
         {
           position: 'Customer Success Manager',
-          industry: ' Administrative',
+          industry: 'Administrative',
           location: 'United Kingdom',
           mode: 'Full-time'
         },
         {
           position: 'Account Executive',
-          industry: ' Administrative',
+          industry: 'Administrative',
           location: 'Philippines',
           mode: 'Remote'
         },
         {
           position: 'Sales Development Representative',
-          industry: ' Administrative',
+          industry: 'Administrative',
           location: 'Canada',
           mode: 'Full-time'
         }
