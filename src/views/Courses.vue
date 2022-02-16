@@ -9,15 +9,8 @@
     <CoursesSorting class="courses__sorting" v-model="view"/>
     <div class="row">
       <CoursesFilter class="courses__filter" @filter-courses="filter"/>
-      <section class="courses__cards">
-        <ul class="courses__cards-list">
-          <li class="courses__cards-list-item" v-for="course in courses">
-            <CoursesCard :course="course" :key="course"/>
-          </li>
-        </ul>
-      </section>
+      <CoursesCards :courses="courses"/>
     </div>
-
   </div>
 </section>
 
@@ -28,13 +21,13 @@
 import CoursesTitleBox from '../components/courses/CoursesTitleBox'
 import CoursesSorting from '../components/courses/CoursesSorting'
 import CoursesFilter from '../components/courses/CoursesFilter'
-import CoursesCard from '../components/courses/CoursesCard'
+import CoursesCards from '../components/courses/CoursesCards'
 
 import { useStore } from 'vuex'
 import { ref, computed } from 'vue'
 
 export default {
-components: { CoursesTitleBox, CoursesSorting, CoursesFilter, CoursesCard },
+components: { CoursesTitleBox, CoursesSorting, CoursesFilter, CoursesCards },
 
 setup() {
   const store = useStore()
@@ -74,7 +67,7 @@ setup() {
 .courses {
   &__title-box {
     width: 100%;
-    
+
     margin-bottom: 1rem;
   }
 
