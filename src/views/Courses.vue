@@ -7,7 +7,7 @@
   </div>
   <div class="inner">
     <div class="row">
-      <button class="button button_success">Добавить курс</button>
+      <button class="button button_success" @click="toggleModal">Добавить курс</button>
       <button class="button button_success">Загрузить курс</button>
       <CoursesSorting class="courses__sorting" v-model="view"/>
     </div>
@@ -16,7 +16,7 @@
       <CoursesCards :courses="courses"/>
     </div>
   </div>
-  <CoursesModal/>
+  <CoursesModal v-if="modal" @close-modal="toggleModal"/>
 </section>
 </template>
 
@@ -57,9 +57,12 @@ setup() {
     })
   )
 
+  const modal = ref(false)
+  const toggleModal = () => modal.value = !modal.value
   return {
     courses, view,
-    filter
+    filter,
+    modal, toggleModal
   }
 },
 components: { CoursesTitleBox, CoursesSorting, CoursesFilter, CoursesCards, CoursesModal },
