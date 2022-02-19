@@ -1,6 +1,5 @@
 <template>
 <section class="sorting">
-  <span class="sorting__information"></span>
   <div class="sorting__buttons">
     <button
       @click="active = 'grid'"

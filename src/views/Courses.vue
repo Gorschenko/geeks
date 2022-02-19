@@ -6,15 +6,18 @@
     </div>
   </div>
   <div class="inner">
-    <CoursesSorting class="courses__sorting" v-model="view"/>
+    <div class="row">
+      <button class="button button_success">Добавить курс</button>
+      <button class="button button_success">Загрузить курс</button>
+      <CoursesSorting class="courses__sorting" v-model="view"/>
+    </div>
     <div class="row">
       <CoursesFilter class="courses__filter" @filter-courses="filter"/>
       <CoursesCards :courses="courses"/>
     </div>
   </div>
+  <CoursesModal/>
 </section>
-
-
 </template>
 
 <script>
@@ -22,13 +25,12 @@ import CoursesTitleBox from '../components/courses/CoursesTitleBox'
 import CoursesSorting from '../components/courses/CoursesSorting'
 import CoursesFilter from '../components/courses/CoursesFilter'
 import CoursesCards from '../components/courses/CoursesCards'
+import CoursesModal from '../components/courses/CoursesModal'
 
 import { useStore } from 'vuex'
 import { ref, computed } from 'vue'
 
 export default {
-components: { CoursesTitleBox, CoursesSorting, CoursesFilter, CoursesCards },
-
 setup() {
   const store = useStore()
   const filterInfo = ref([])
@@ -59,7 +61,8 @@ setup() {
     courses, view,
     filter
   }
-}
+},
+components: { CoursesTitleBox, CoursesSorting, CoursesFilter, CoursesCards, CoursesModal },
 }
 </script>
 

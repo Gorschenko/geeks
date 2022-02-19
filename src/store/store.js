@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import articlesModule from './modules/articles'
+import coursesModule from './modules/courses'
 
 export const store = createStore({
   state() {
@@ -166,5 +167,5 @@ export const store = createStore({
       return state.vacancies
     }
   },
-  modules: { articlesModule }
+  modules: { articlesModule, coursesModule }
 })
