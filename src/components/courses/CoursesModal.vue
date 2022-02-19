@@ -23,6 +23,16 @@
     </div>
 
     <div class="form__control mb-1">
+      <label for="coursesPrice" class="text text_smallest mb-05">Введите цену:</label>
+      <input id="coursesPrice" type="number" class="input" v-model="modalCourses.price">
+    </div>
+
+    <div class="form__control mb-1">
+      <label for="coursesTime" class="text text_smallest mb-05">Укажите время:</label>
+      <input id="coursesTime" type="text" class="input" v-model="modalCourses.time">
+    </div>
+
+    <div class="form__control mb-1">
       <label for="coursesLevel" class="text text_smallest mb-05">Выберите уровень:</label>
       <select id="coursesLevel" class="select" v-model="modalCourses.level">
         <option value="begginner">Begginner</option>
@@ -32,19 +42,19 @@
     </div>
 
     <div class="form__control mb-1">
-      <label for="coursesPrice" class="text text_smallest mb-05">Введите цену:</label>
-      <input id="coursesPrice" type="number" class="input" v-model="modalCourses.price">
-    </div>
-
-    <div class="form__control mb-1">
-      <label for="coursesAuthor" class="text text_smallest mb-05">Укажите автора:</label>
-      <input id="coursesAuthor" type="text" class="input" v-model="modalCourses.author">
+      <label for="coursesAuthor" class="text text_smallest mb-05">Выберите уровень:</label>
+      <select id="coursesAuthor" class="select" v-model="modalCourses.author">
+        <option value="bell">Juanita Bell</option>
+        <option value="mccoy">Morris Mccoy</option>
+        <option value="hawkins">Ted Hawkins</option>
+        <option value="robertson">Claire Robertson</option>
+      </select>
     </div>
 
     <div class="form__buttons">
       <div>
         <button class="button button_danger mr-1" @click="resetForm">Очистить</button>
-        <button class="button button_success" @click="loadCourses" :disabled="isDisabled">Загрузить</button>
+        <button class="button button_success" @click="$emit('add-course', modalCourses)" :disabled="isDisabled">Добавить</button>
       </div>
       <button class="button button_secondary" @click="$emit('close-modal')">Закрыть</button>
     </div>
@@ -56,29 +66,33 @@
 <script>
 import {reactive, computed} from 'vue'
 export default {
-emits: ['close-modal'],
+emits: ['close-modal', 'add-course'],
 setup(_, {emit}) {
   const modalCourses = reactive({
     name: null,
     category: 'javascript',
-    level: 'begginner',
     price: null,
-    author: null
+    time: null,
+    level: 'begginner',
+    author: 'bell'
   })
-  const isDisabled = computed(() => !modalCourses.name || !modalCourses.category || !modalCourses.level || !modalCourses.price || !modalCourses.author)
+  const isDisabled = computed(() =>
+    !modalCourses.name || !modalCourses.category || !modalCourses.price || !modalCourses.time || !modalCourses.level || !modalCourses.author
+  )
   const resetForm = () => {
     modalCourses.name = null,
     modalCourses.category = 'javascript',
-    modalCourses.level = 'begginner',
     modalCourses.price = null,
-    modalCourses.author =null
+    modalCourses.time = null,
+    modalCourses.level = 'begginner',
+    modalCourses.author = 'bell'
     emit('close-modal')
   }
-  const loadCourses = () => console.log(Object.values(modalCourses))
+
   return {
     modalCourses,
     isDisabled,
-    resetForm, loadCourses
+    resetForm
   }
 }
 }

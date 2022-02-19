@@ -8,7 +8,7 @@
   <div class="inner">
     <div class="row">
       <button class="button button_success" @click="toggleModal">Добавить курс</button>
-      <button class="button button_success">Загрузить курс</button>
+      <button class="button button_success" @click="loadCourses">Загрузить список курсов</button>
       <CoursesSorting class="courses__sorting" v-model="view"/>
     </div>
     <div class="row">
@@ -16,7 +16,7 @@
       <CoursesCards :courses="courses"/>
     </div>
   </div>
-  <CoursesModal v-if="modal" @close-modal="toggleModal"/>
+  <CoursesModal v-if="modal" @close-modal="toggleModal" @add-course="addCourse"/>
 </section>
 </template>
 
@@ -28,7 +28,7 @@ import CoursesCards from '../components/courses/CoursesCards'
 import CoursesModal from '../components/courses/CoursesModal'
 
 import { useStore } from 'vuex'
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted} from 'vue'
 
 export default {
 setup() {
@@ -39,30 +39,43 @@ setup() {
   function filter(data) {
     filterInfo.value = data
   }
-
-  const courses = computed(() => store.getters.courses
-    .filter(course => {
-      const categories = filterInfo.value[0]
-      if (categories !== undefined && categories.length !== 0) {
-        return filterInfo.value[0].includes(course.category)
-      }
-      return course
-    })
-    .filter(course => {
-      const levels = filterInfo.value[1]
-      if (levels !== undefined && levels.length !== 0) {
-        return levels.includes(course.level)
-      }
-      return course
-    })
-  )
+  onMounted(async () => {
+    await loadCourses()
+    console.log(courses)
+  })
+  const courses = computed(() => store.getters['coursesModule/courses'])
+  // const courses = computed(() => store.getters.courses
+  //   .filter(course => {
+  //     const categories = filterInfo.value[0]
+  //     if (categories !== undefined && categories.length !== 0) {
+  //       return filterInfo.value[0].includes(course.category)
+  //     }
+  //     return course
+  //   })
+  //   .filter(course => {
+  //     const levels = filterInfo.value[1]
+  //     if (levels !== undefined && levels.length !== 0) {
+  //       return levels.includes(course.level)
+  //     }
+  //     return course
+  //   })
+  // )
 
   const modal = ref(false)
   const toggleModal = () => modal.value = !modal.value
+
+  const addCourse = course => {
+    store.dispatch('coursesModule/addCourse', course)
+    toggleModal()
+  }
+  const loadCourses = async () => {
+    await store.dispatch('coursesModule/loadCourses')
+  }
   return {
     courses, view,
     filter,
-    modal, toggleModal
+    modal, toggleModal,
+    addCourse, loadCourses
   }
 },
 components: { CoursesTitleBox, CoursesSorting, CoursesFilter, CoursesCards, CoursesModal },
