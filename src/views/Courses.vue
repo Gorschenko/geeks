@@ -6,9 +6,8 @@
     </div>
   </div>
   <div class="inner">
-    <div class="row">
+    <div class="row row_between mb-1">
       <button class="button button_success" @click="toggleModal">Добавить курс</button>
-      <button class="button button_success" @click="loadCourses">Загрузить список курсов</button>
       <CoursesSorting class="courses__sorting" v-model="view"/>
     </div>
     <div class="row">
@@ -41,25 +40,24 @@ setup() {
   }
   onMounted(async () => {
     await loadCourses()
-    console.log(courses)
   })
-  const courses = computed(() => store.getters['coursesModule/courses'])
-  // const courses = computed(() => store.getters.courses
-  //   .filter(course => {
-  //     const categories = filterInfo.value[0]
-  //     if (categories !== undefined && categories.length !== 0) {
-  //       return filterInfo.value[0].includes(course.category)
-  //     }
-  //     return course
-  //   })
-  //   .filter(course => {
-  //     const levels = filterInfo.value[1]
-  //     if (levels !== undefined && levels.length !== 0) {
-  //       return levels.includes(course.level)
-  //     }
-  //     return course
-  //   })
-  // )
+
+  const courses = computed(() => store.getters['coursesModule/courses']
+    .filter(course => {
+      const categories = filterInfo.value[0]
+      if (categories !== undefined && categories.length !== 0) {
+        return filterInfo.value[0].includes(course.category)
+      }
+      return course
+    })
+    .filter(course => {
+      const levels = filterInfo.value[1]
+      if (levels !== undefined && levels.length !== 0) {
+        return levels.includes(course.level)
+      }
+      return course
+    })
+  )
 
   const modal = ref(false)
   const toggleModal = () => modal.value = !modal.value
@@ -86,13 +84,11 @@ components: { CoursesTitleBox, CoursesSorting, CoursesFilter, CoursesCards, Cour
 .courses {
   &__title-box {
     width: 100%;
-
     margin-bottom: 1rem;
   }
 
   &__sorting {
     height: 50px;
-    margin-bottom: 1rem;
   }
 
   &__filter {

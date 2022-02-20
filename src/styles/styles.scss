@@ -226,6 +226,14 @@
 
 .row {
   display: flex;
+  &_center {
+    justify-content: center;
+    align-items: center;
+  }
+  &_between {
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .active {

@@ -10,15 +10,15 @@
     </div>
 
     <div class="form__control mb-1">
-      <label for="coursesCategory" class="text text_smallest mb-05">Выберите категорию:</label>
+      <label for="coursesCategory" class="text text_smallest mb-05">Укажите категорию:</label>
       <select id="coursesCategory" class="select" v-model="modalCourses.category">
-        <option value="javascript">JavaScript</option>
-        <option value="react">React</option>
-        <option value="angular">Angular</option>
-        <option value="node">Node</option>
-        <option value="css">CSS</option>
-        <option value="python">Python</option>
-        <option value="wordpress">WordPress</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="React">React</option>
+        <option value="Angular">Angular</option>
+        <option value="Node">Node</option>
+        <option value="Css">CSS</option>
+        <option value="Python">Python</option>
+        <option value="WordPress">WordPress</option>
       </select>
     </div>
 
@@ -28,26 +28,26 @@
     </div>
 
     <div class="form__control mb-1">
-      <label for="coursesTime" class="text text_smallest mb-05">Укажите время:</label>
+      <label for="coursesTime" class="text text_smallest mb-05">Введите время:</label>
       <input id="coursesTime" type="text" class="input" v-model="modalCourses.time">
     </div>
 
     <div class="form__control mb-1">
-      <label for="coursesLevel" class="text text_smallest mb-05">Выберите уровень:</label>
+      <label for="coursesLevel" class="text text_smallest mb-05">Укажите уровень:</label>
       <select id="coursesLevel" class="select" v-model="modalCourses.level">
-        <option value="begginner">Begginner</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="expert">Expert</option>
+        <option value="Begginner">Begginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Expert">Expert</option>
       </select>
     </div>
 
     <div class="form__control mb-1">
-      <label for="coursesAuthor" class="text text_smallest mb-05">Выберите уровень:</label>
+      <label for="coursesAuthor" class="text text_smallest mb-05">Укажите автора:</label>
       <select id="coursesAuthor" class="select" v-model="modalCourses.author">
-        <option value="bell">Juanita Bell</option>
-        <option value="mccoy">Morris Mccoy</option>
-        <option value="hawkins">Ted Hawkins</option>
-        <option value="robertson">Claire Robertson</option>
+        <option value="Juanita Bell">Juanita Bell</option>
+        <option value="Morris Mccoy">Morris Mccoy</option>
+        <option value="Ted Hawkins">Ted Hawkins</option>
+        <option value="Claire Robertson">Claire Robertson</option>
       </select>
     </div>
 
@@ -70,11 +70,11 @@ emits: ['close-modal', 'add-course'],
 setup(_, {emit}) {
   const modalCourses = reactive({
     name: null,
-    category: 'javascript',
+    category: 'JavaScript',
     price: null,
     time: null,
-    level: 'begginner',
-    author: 'bell'
+    level: 'Begginner',
+    author: 'Juanita Bell'
   })
   const isDisabled = computed(() =>
     !modalCourses.name || !modalCourses.category || !modalCourses.price || !modalCourses.time || !modalCourses.level || !modalCourses.author

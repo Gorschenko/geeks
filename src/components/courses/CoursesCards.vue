@@ -4,7 +4,7 @@
     <li class="cards__list-item" v-for="course in courses" :key="course">
       <article class="card">
         <header class="card__header">
-          <img :src="require(`../../assets/image/categories/categories-${course.category}.jpg`)" class="image card__header-image">
+          <img :src="require(`../../assets/image/categories/categories-${course.category.toLowerCase()}.jpg`)" class="image card__header-image">
         </header>
         <div class="card__inner">
           <section class="card__body">
@@ -27,7 +27,7 @@
           </section>
           <footer class="card__footer">
             <div class="card__footer-avatar">
-              <img :src="require(`../../assets/image/avatars/avatar-medium-${course.author}.jpg`)" class="image image_circle">
+              <img :src="require(`../../assets/image/avatars/avatar-medium-${course.author.split(' ')[1].toLowerCase()}.jpg`)" class="image image_circle">
             </div>
             <span class="title">{{course.author}}</span>
           </footer>
@@ -39,7 +39,7 @@
 </template>
 <script>
 export default {
-props: ['courses'],
+props: ['courses']
 }
 </script>
 <style lang="scss" scoped>
