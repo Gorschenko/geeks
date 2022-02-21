@@ -8,6 +8,7 @@ import Contact from '../views/Contact'
 import Terms from '../views/Terms'
 import Policy from '../views/Policy'
 import Article from '../views/Article'
+import Test from '../views/Test'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -40,6 +41,12 @@ const router = createRouter({
       path: '/career',
       name: 'Career',
       component: Career,
+      meta: { navigation: 'header' }
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test,
       meta: { navigation: 'header' }
     },
     {
