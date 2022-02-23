@@ -3,10 +3,6 @@
   <div class="inner">
 
     <div class="test__header">
-      <button
-        class="button button_success mr-1"
-        @click="loadPosts"
-      >Загрузить список</button>
       <ol class="pages">
         <li
         v-for="pageNumber in totalPages"
@@ -23,7 +19,7 @@
 
     <div class="test__body">
       <ul class="list">
-        <li class="list__item" v-for="post in posts">
+        <li class="list__item" v-for="post in posts" :key="post">
           <span class="text text_small text_bold text_primary mb-05">{{ post.id }}</span>
           <h1 class="text text_smallest mb-05">{{ post.title }}</h1>
           <p class="text text_smallest">{{ post.body }}</p>
@@ -42,7 +38,7 @@ data() {
   return {
     posts: [],
     page: 1,
-    limitPosts: 10,
+    limitPosts: 5,
     totalPages: 0
   }
 },
@@ -95,7 +91,7 @@ watch: {
   &__item {
     @include container;
     width: 80%;
-    margin: 0 auto 1rem;
+    margin-bottom: 1rem;
   }
 }
 

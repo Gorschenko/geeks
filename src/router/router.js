@@ -8,7 +8,9 @@ import Contact from '../views/Contact'
 import Terms from '../views/Terms'
 import Policy from '../views/Policy'
 import Article from '../views/Article'
-import Test from '../views/Test'
+import Pagination from '../views/Pagination'
+import Mail from '../views/Mail'
+import EmailBody from '../components/parts/EmailBody'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -44,10 +46,19 @@ const router = createRouter({
       meta: { navigation: 'header' }
     },
     {
-      path: '/test',
-      name: 'Test',
-      component: Test,
+      path: '/pagination',
+      name: 'Pagination',
+      component: Pagination,
       meta: { navigation: 'header' }
+    },
+    {
+      path: '/mail',
+      name: 'Mail',
+      component: Mail,
+      meta: { navigation: 'header' },
+      children: [
+        { path: ':mailId?', component: EmailBody, props: true }
+      ]
     },
     {
       path: '/contact',
